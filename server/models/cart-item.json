@@ -1,0 +1,42 @@
+{
+  "name": "CartItem",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "quantity": {
+      "type": "number",
+      "default": 1
+    }
+  },
+  "validations": [],
+  "relations": {
+    "cart": {
+      "type": "belongsTo",
+      "model": "Cart",
+      "foreignKey": ""
+    },
+    "product": {
+      "type": "belongsTo",
+      "model": "Product",
+      "foreignKey": ""
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "DENY"
+    }
+  ],
+  "methods": {}
+}

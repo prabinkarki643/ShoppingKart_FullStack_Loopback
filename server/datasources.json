@@ -1,0 +1,16 @@
+{
+  "db": {
+    "name": "db",
+    "connector": "memory"
+  },
+  "mysqlDS": {
+    "host": "localhost",
+    "port": 8889,
+    "url": "",
+    "database": "shoppingDB",
+    "password": "root",
+    "name": "mysqlDS",
+    "user": "root",
+    "connector": "mysql"
+  }
+}

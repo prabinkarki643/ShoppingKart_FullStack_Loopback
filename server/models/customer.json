@@ -1,0 +1,54 @@
+{
+  "name": "Customer",
+  "plural": "customers",
+  "base": "User",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "firstName": {
+      "type": "string"
+    },
+    "lastName": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "address": {
+      "type": "embedsOne",
+      "model": "Address",
+      "property": "customerAddress",
+      "options": {
+        "forceId": false,
+        "validate": true
+      }
+    },
+    "carts": {
+      "type": "hasOne",
+      "model": "Cart",
+      "foreignKey": "customerId"
+    },
+    "orders": {
+      "type": "hasMany",
+      "model": "Order",
+      "foreignKey": ""
+    }
+  },
+  "acls": [
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
+}
